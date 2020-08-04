@@ -3,14 +3,10 @@ RUNTIME="$BUILD_DIR/runtime.txt"
 
 # Get the runtime version and download appropriate Miniconda
 if [ -e $RUNTIME ]; then
-    PYTHON_VERSION=$(cut -d- -f2 $RUNTIME)
-    if [ ${PYTHON_VERSION:0:1} -eq 3 ]; then
-        PYTHON_MAJOR_VERSION=3
-    else
-        PYTHON_MAJOR_VERSION=""
-    fi
-    MINICONDA_FILE="Miniconda$PYTHON_MAJOR_VERSION-latest-Linux-x86_64.sh"
+    echo "Found runtime. using 3.5.2"
+    MINICONDA_FILE="Miniconda-3.5.2-Linux-x86_64.sh"
 else
+    echo "No Runtime found."
     MINICONDA_FILE="Miniconda-latest-Linux-x86_64.sh"
 fi
 
